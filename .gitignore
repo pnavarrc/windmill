@@ -1,0 +1,7 @@
+
+# Bower
+bower_components/*
+.bowerrc
+
+# Node
+node_modules/*
