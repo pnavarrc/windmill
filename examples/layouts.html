@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- <link href='{{ site.baseurl}}/{{ site.bootstrap }}/css/bootstrap.min.css' rel='stylesheet'> -->
+
+    <!-- Include the libraries -->
+    <script src="/bower_components/d3/d3.js" charset="utf-8"></script>
+    <script src="/src/layout/matrix.js"></script>
+</head>
+
+<body>
+    <div class="content">
+
+    </div>
+
+
+    <script>
+        d3.csv('wind.csv', function(error, data) {
+
+            // Handle errors getting or parsing the data
+            if (error) {
+                console.error(error);
+                return error;
+            }
+
+            data.forEach(function(d) {
+                d.Date = new Date(d.Date);
+                d.Date.setHours(+d.Hour);
+                d.Speed = +d.Speed;
+            });
+
+            var matrixLayout = windmill.layout.matrix()
+                .row(function(d) { return d.Date.getHours(); })
+                .column(function(d) { return d.Date.getDay(); })
+                .value(function(d) { return d.Speed; })
+
+
+            console.log(data);
+            console.log(matrixLayout(data));
+
+        });
+    </script>
+</body>
+
+
+
+</html>
+
