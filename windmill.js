@@ -1,3 +1,22 @@
+!function () {
+    var windmill = {version: '0.1.0'}; // semver
+
+
+windmill.svg = {};
+/* globals windmill */
+
+// SVG Translation
+windmill.svg.translate = function(dx, dy) {
+    return 'translate(' + [dx, dy] + ')';
+};
+
+// SVG Scale
+windmill.svg.scale = function(sx, sy) {
+    if (arguments.length < 2) { sy = sx; }
+    return 'scale(' + [sx, sy] + ')';
+};
+// Charts
+windmill.chart = {};
 // Heatmap Chart
 windmill.chart.heatMap = function() {
     'use strict';
@@ -135,3 +154,13 @@ windmill.chart.heatMap = function() {
 
     return chart;
 };
+    // Expose the package components
+    if (typeof module === 'object' && module.exports) {
+        // The package is loaded as a node module
+        this.d3 = require('d3');
+        module.exports = windmill;
+    } else {
+        // The file is loaded in the browser.
+        this.windmill = windmill;
+    }
+}();

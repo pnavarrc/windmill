@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Include the libraries -->
+    <script src="/bower_components/d3/d3.js" charset="utf-8"></script>
+    <script src="/windmill.js"></script>
+</head>
+
+<body>
+
+    <div id="chart01"></div>
+
+<script>
+    // Sample data array
+    var data = [
+            [2, 3, 1, 2, 6, 7, 8, 5, 2],
+            [3, 2, 3, 4, 8, 6, 9, 4, 3],
+            [2, 6, 5, 5, 2, 4, 3, 5, 2],
+            [6, 5, 6, 4, 3, 2, 2, 6, 7]
+        ];
+
+    // Create and configure the heatmap chart
+    var heatmap = windmill.chart.heatMap()
+        .value(function(d) { return d; })
+        .width(600)
+        .height(200)
+        .colorExtent(['#0000ff', '#ff0000']);
+
+    // Create the heatmap chart in the container selection
+    d3.select('div#chart01')
+        .data([data])
+        .call(heatmap);
+</script>
+</body>
+</html>
+
