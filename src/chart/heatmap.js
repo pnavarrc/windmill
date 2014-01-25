@@ -76,7 +76,7 @@ windmill.chart.heatMap = function() {
                 .attr('x', function(d, i) { return xScale(i); })
                 .attr('width', xScale.rangeBand())
                 .attr('height', yScale.rangeBand())
-                .attr('fill', function(d) { return colorScale(d); });
+                .attr('fill', function(d) { return colorScale(value(d)); });
         });
     }
 
