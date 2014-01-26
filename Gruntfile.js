@@ -14,6 +14,8 @@ module.exports = function(grunt) {
                     'src/svg/transform.js',
                     'src/chart/chart.js',
                     'src/chart/heatmap.js',
+                    'src/layout/layout.js',
+                    'src/layout/matrix.js',
                     'src/end.js'
                 ],
                 dest: 'windmill.js'
@@ -37,7 +39,7 @@ module.exports = function(grunt) {
                 options: {
                     reporter: 'spec'
                 },
-                src: ['test/*.js']
+                src: ['test/*.js', 'test/*/*.js']
             }
         },
 
@@ -46,6 +48,7 @@ module.exports = function(grunt) {
                 'Gruntfile.js',
                 'src/chart/*.js',
                 'src/svg/*.js',
+                'src/layout/*.js',
                 'test/*.js']
         }
     });

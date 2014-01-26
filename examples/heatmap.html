@@ -13,16 +13,20 @@
 
 <script>
     // Sample data array
+
     var data = [
-            [2, 3, 1, 2, 6, 7, 8, 5, 2],
-            [3, 2, 3, 4, 8, 6, 9, 4, 3],
-            [2, 6, 5, 5, 2, 4, 3, 5, 2],
-            [6, 5, 6, 4, 3, 2, 2, 6, 7]
-        ];
+        {row: 1, column: 1, value: 5.5},
+        {row: 1, column: 2, value: 2.5},
+        {row: 1, column: 3, value: 3.5},
+        {row: 1, column: 4, value: 1.5},
+        {row: 2, column: 1, value: 6.5},
+        {row: 2, column: 2, value: 2.5},
+        {row: 2, column: 3, value: 4.5},
+        {row: 2, column: 4, value: 7.5}
+    ];
 
     // Create and configure the heatmap chart
-    var heatmap = windmill.chart.heatMap()
-        .value(function(d) { return d; })
+    var heatmap = windmill.chart.heatmap()
         .width(600)
         .height(200)
         .colorExtent(['#0000ff', '#ff0000']);
