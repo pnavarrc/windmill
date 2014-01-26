@@ -163,12 +163,13 @@ windmill.layout.matrix = function() {
         column: function(d) { return d.column; },
         value: function(d) { return d.value; },
         aggregate: function(values) {
-            return values.reduce(function(prev, curr) {
-                return prev + curr;
-            }, 0);
+            var sum = 0;
+            values.forEach(function(d) { sum += d; });
+            return sum;
         }
     };
 
+    // layout function
     function layout(data) {
 
         // Array to group and aggregate the data
@@ -177,7 +178,7 @@ windmill.layout.matrix = function() {
         var row, col, val,
             found = false;
 
-        // Group the items by row and column
+        // Grouping
         data.forEach(function(d) {
 
             // Compute the row, column and value for each data item
@@ -201,10 +202,9 @@ windmill.layout.matrix = function() {
             }
         });
 
-        // Reduce
+        // Aggregation
         groupedData.forEach(function(d) {
-            // Add the aggregated value and remove the original
-            // data items
+            // Aggregate the values array
             d.value = attributes.aggregate(d.values);
             delete d.values;
         });
@@ -212,7 +212,7 @@ windmill.layout.matrix = function() {
         return groupedData;
     }
 
-
+    // Create accessor functions
     function createAccessor(attr) {
         function accessor(value) {
             if (!arguments.length) { return attributes[attr]; }
@@ -222,15 +222,13 @@ windmill.layout.matrix = function() {
         return accessor;
     }
 
-    layout.generateProperties = function() {
-        for (var attr in attributes) {
-            if ((!layout[attr]) && (attributes.hasOwnProperty(attr))) {
-                layout[attr] = createAccessor(attr);
-            }
+    // Generate automatic accessors for each attribute
+    for (var attr in attributes) {
+        if ((!layout[attr]) && (attributes.hasOwnProperty(attr))) {
+            layout[attr] = createAccessor(attr);
         }
-    };
+    }
 
-    layout.generateProperties();
     return layout;
 };
 
