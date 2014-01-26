@@ -1,5 +1,5 @@
 !function () {
-    var windmill = {version: '0.1.1'}; // semver
+    var windmill = {version: '0.2.0'}; // semver
 
 
 windmill.svg = {};
