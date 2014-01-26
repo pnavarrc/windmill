@@ -3,6 +3,7 @@
 
 <head>
     <!-- Include the libraries -->
+    <!-- <link rel="stylesheet" href="/css/windmill.css"> -->
     <script src="/bower_components/d3/d3.js" charset="utf-8"></script>
     <script src="/windmill.js"></script>
 </head>
@@ -29,7 +30,7 @@
     var heatmap = windmill.chart.heatmap()
         .width(600)
         .height(200)
-        .colorExtent(['#0000ff', '#ff0000']);
+        .colorExtent(['#333333', '#0000cc']);
 
     // Create the heatmap chart in the container selection
     d3.select('div#chart01')

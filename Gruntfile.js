@@ -49,7 +49,9 @@ module.exports = function(grunt) {
                 'src/chart/*.js',
                 'src/svg/*.js',
                 'src/layout/*.js',
-                'test/*.js']
+                'test/*.js',
+                'test/*/*.js'
+            ]
         }
     });
 
