@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Include the libraries -->
+    <script src="/bower_components/d3/d3.js" charset="utf-8"></script>
+    <script src="/windmill.js"></script>
+</head>
+
+<body>
+<script>
+    // Define the aggregation function
+    var average = function(values) {
+        var sum = 0;
+        values.forEach(function(d) { sum += d;});
+        return sum / values.length;
+    }
+
+    // Create and configure a matrix layout instance
+    var matrix = windmill.layout.matrix()
+        .row(function(d) { return d.a; })
+        .column(function(d) { return d.b; })
+        .value(function(d) { return d.c; })
+        .aggregate(average);
+
+    // Sample data. Each (row, column) combination have more than one value
+    var data = [
+        {a: 1, b: 1, c: 10},
+        {a: 1, b: 1, c:  5},
+        {a: 1, b: 2, c:  8},
+        {a: 1, b: 2, c:  6},
+        {a: 2, b: 1, c: 12},
+        {a: 2, b: 1, c:  8},
+        {a: 2, b: 2, c: 15},
+        {a: 2, b: 2, c:  5}
+    ];
+
+    // Display the original data and the computed matrix data.
+    console.log(data);
+    console.log(matrix(data));
+</script>
+</body>
+</html>
