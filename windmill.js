@@ -1,5 +1,5 @@
 !function () {
-    var windmill = {version: '0.3.0'}; // semver
+    var windmill = {version: '0.3.2'}; // semver
 
 
 windmill.svg = {};
@@ -239,6 +239,6 @@ windmill.layout.matrix = function() {
         module.exports = windmill;
     } else {
         // The file is loaded in the browser.
-        this.windmill = windmill;
+        window.windmill = windmill;
     }
 }();

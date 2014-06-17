@@ -5,6 +5,6 @@
         module.exports = windmill;
     } else {
         // The file is loaded in the browser.
-        this.windmill = windmill;
+        window.windmill = windmill;
     }
 }();
