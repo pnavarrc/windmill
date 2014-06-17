@@ -1,2 +1,2 @@
 !function () {
-    var windmill = {version: '0.3.2'}; // semver
+    var windmill = {version: '0.3.3'}; // semver

@@ -36,7 +36,7 @@ windmill.layout.matrix = function() {
             found = false;
             groupedData.forEach(function(item, idx) {
                 if ((item.row === row) && (item.col === col)) {
-                    groupedData[idx].values.push(val);
+                    item.values.push(val);
                     found = true;
                 }
             });
