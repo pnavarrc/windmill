@@ -2,14 +2,15 @@
   "name": "windmill",
   "version": "0.3.0",
   "dependencies": {
-      "d3": "~3.4.1"
-    },
+    "d3": "~3.4.1"
+  },
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-uglify": "^0.5.0",
     "grunt-vows": "~0.4.0",
-    "vows": "~0.7.0",
-    "grunt-contrib-jshint": "~0.8.0"
+    "vows": "~0.7.0"
   },
   "author": "Pablo Navarro Castillo <pnavarrc@gmail.com>"
 }
